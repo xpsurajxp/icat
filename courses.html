@@ -43,6 +43,56 @@
             complete topics in popup view.
           </p>
         </div>
+        <div class="courses-filter" id="coursesFilter">
+          <div class="courses-filter-grid">
+            <label class="filter-field" for="courseSearchInput">
+              <span>Search Course</span>
+              <input type="search" id="courseSearchInput" placeholder="Search by course name or keyword" />
+            </label>
+
+            <label class="filter-field" for="courseDurationFilter">
+              <span>Duration</span>
+              <select id="courseDurationFilter">
+                <option value="all">All Durations</option>
+                <option value="2">2 Months</option>
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+                <option value="12">12 Months</option>
+                <option value="15">15 Months</option>
+                <option value="module">Module Based</option>
+                <option value="contact">Contact Institute</option>
+              </select>
+            </label>
+
+            <label class="filter-field" for="courseFeeFilter">
+              <span>Fee Range</span>
+              <select id="courseFeeFilter">
+                <option value="all">All Fees</option>
+                <option value="upto3000">Up to 3000&#8377;</option>
+                <option value="3001to6000">3001&#8377; to 6000&#8377;</option>
+                <option value="6001to10000">6001&#8377; to 10000&#8377;</option>
+                <option value="10001plus">10001&#8377; and above</option>
+                <option value="contact">Contact Institute</option>
+              </select>
+            </label>
+
+            <label class="filter-field" for="courseSortFilter">
+              <span>Sort By</span>
+              <select id="courseSortFilter">
+                <option value="default">Default Order</option>
+                <option value="name-asc">Name (A to Z)</option>
+                <option value="fee-asc">Fee (Low to High)</option>
+                <option value="fee-desc">Fee (High to Low)</option>
+                <option value="duration-asc">Duration (Short to Long)</option>
+                <option value="duration-desc">Duration (Long to Short)</option>
+              </select>
+            </label>
+          </div>
+          <div class="courses-filter-meta">
+            <p class="courses-filter-count" id="coursesFilterCount">Showing 0 courses</p>
+            <button class="btn btn-secondary-outline" id="coursesFilterReset" type="button">Reset Filters</button>
+          </div>
+        </div>
         <div class="grid courses-grid">
           <article class="course-card">
             <h3>ADCA</h3>
@@ -116,8 +166,8 @@
 
           <article class="course-card">
             <h3>O-Level</h3>
-            <p><strong>Duration:</strong> Module Based</p>
-            <p><strong>Fee:</strong> Contact Institute</p>
+            <p><strong>Duration:</strong> 1 Year</p>
+            <p><strong>Fee:</strong> 15000&#8377;</p>
             <div class="course-actions">
               <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-o-level">Syllabus</button>
               <a class="course-link course-enquire" href="admission.html">Enquire</a>
@@ -130,6 +180,16 @@
             <p><strong>Fee:</strong> 3500&#8377;</p>
             <div class="course-actions">
               <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-python">Syllabus</button>
+              <a class="course-link course-enquire" href="admission.html">Enquire</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <h3>Advance Excel</h3>
+            <p><strong>Duration:</strong> 3 Months</p>
+            <p><strong>Fee:</strong> 3000&#8377;</p>
+            <div class="course-actions">
+              <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-advance-excel">Syllabus</button>
               <a class="course-link course-enquire" href="admission.html">Enquire</a>
             </div>
           </article>
@@ -150,6 +210,36 @@
             <p><strong>Fee:</strong> 8500&#8377;</p>
             <div class="course-actions">
               <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-graphic-designing">Syllabus</button>
+              <a class="course-link course-enquire" href="admission.html">Enquire</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <h3>Diploma in Animation &amp; Motion Graphics</h3>
+            <p><strong>Duration:</strong> 06 Months</p>
+            <p><strong>Fee:</strong> 9000&#8377;</p>
+            <div class="course-actions">
+              <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-animation-motion-graphics">Syllabus</button>
+              <a class="course-link course-enquire" href="admission.html">Enquire</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <h3>Artificial Intelligence &amp; Generative AI Course</h3>
+            <p><strong>Duration:</strong> 2 Months</p>
+            <p><strong>Fee:</strong> 2500&#8377;</p>
+            <div class="course-actions">
+              <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-artificial-intelligence-generative-ai">Syllabus</button>
+              <a class="course-link course-enquire" href="admission.html">Enquire</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <h3>WordPress Website Development Course</h3>
+            <p><strong>Duration:</strong> 3 Months</p>
+            <p><strong>Fee:</strong> 4500&#8377;</p>
+            <div class="course-actions">
+              <button class="btn btn-secondary course-syllabus-btn" type="button" data-template="syllabus-wordpress-website-development">Syllabus</button>
               <a class="course-link course-enquire" href="admission.html">Enquire</a>
             </div>
           </article>
@@ -184,6 +274,7 @@
             </div>
           </article>
         </div>
+        <p class="courses-no-result" id="coursesNoResult" hidden>No courses match your current search or filters.</p>
       </div>
     </section>
 
@@ -192,6 +283,63 @@
         <button class="course-modal-close" id="courseModalClose" aria-label="Close syllabus popup">x</button>
         <h2 id="courseModalTitle">Course Syllabus</h2>
         <div class="course-modal-body" id="courseModalBody"></div>
+      </div>
+    </div>
+
+    <div class="course-modal quick-enquiry-modal" id="courseEnquiryModal" aria-hidden="true">
+      <div class="course-modal-dialog quick-enquiry-dialog" role="dialog" aria-modal="true" aria-labelledby="courseEnquiryTitle">
+        <button class="course-modal-close" id="courseEnquiryClose" aria-label="Close course enquiry form">x</button>
+        <h2 id="courseEnquiryTitle">Course Enquiry</h2>
+        <p class="quick-enquiry-copy">Fill details and continue to WhatsApp with your selected course.</p>
+        <form id="courseEnquiryForm" class="enquiry-form" novalidate>
+          <div class="form-field">
+            <label for="courseEnqFullName">Full Name</label>
+            <input type="text" id="courseEnqFullName" name="courseEnqFullName" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="form-field">
+            <label for="courseEnqMobile">Mobile Number</label>
+            <input type="tel" id="courseEnqMobile" name="courseEnqMobile" placeholder="10-digit mobile number" required />
+          </div>
+
+          <div class="form-field">
+            <label for="courseEnqEmail">Email</label>
+            <input type="email" id="courseEnqEmail" name="courseEnqEmail" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="courseEnqInterested">Course Interested</label>
+            <select id="courseEnqInterested" name="courseEnqInterested" required>
+              <option value="">Select a course</option>
+              <option>ADCA</option>
+              <option>DCA</option>
+              <option>ADFA</option>
+              <option>DFA</option>
+              <option>ADCA Plus</option>
+              <option>Tally Prime</option>
+              <option>CCC</option>
+              <option>O-Level</option>
+              <option>Python</option>
+              <option>Advance Excel</option>
+              <option>DTP</option>
+              <option>Graphic Designing</option>
+              <option>Diploma in Animation &amp; Motion Graphics</option>
+              <option>Artificial Intelligence &amp; Generative AI Course</option>
+              <option>WordPress Website Development Course</option>
+              <option>Video Editing - Basic</option>
+              <option>Video Editing - Advance</option>
+              <option>Web Development</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="courseEnqMessage">Message</label>
+            <textarea id="courseEnqMessage" name="courseEnqMessage" rows="4" placeholder="Tell us about your learning goal"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Enquiry on WhatsApp</button>
+          <p id="courseEnqStatus" class="form-status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
 
@@ -397,7 +545,8 @@
       </template>
 
       <template id="syllabus-o-level" data-title="O-Level - National Institute of Electronics and Information Technology">
-        <p class="syllabus-meta">Examination Center: Ayodhya, Lucknow</p>
+        <p class="syllabus-meta">Duration: 1 Year | Fee: 15000&#8377;</p>
+        <p class="syllabus-note"><strong>Examination Center:</strong> Ayodhya, Lucknow</p>
         <h4>Examination</h4>
         <ul class="syllabus-points">
           <li>Theory Exam</li>
@@ -439,6 +588,25 @@
           <li>Scope and Modules</li>
           <li>NumPy Basics</li>
           <li>Assignment</li>
+        </ul>
+      </template>
+
+      <template id="syllabus-advance-excel" data-title="Advance Excel">
+        <p class="syllabus-meta">Duration: 3 Months | Fee: 3000&#8377;</p>
+        <h4>Syllabus</h4>
+        <ul class="syllabus-points">
+          <li>Advanced Formulas and Functions</li>
+          <li>Logical, Text and Date Functions</li>
+          <li>Lookup Functions (VLOOKUP, HLOOKUP, XLOOKUP)</li>
+          <li>Pivot Table and Pivot Chart</li>
+          <li>Data Analysis and Data Cleaning</li>
+          <li>Conditional Formatting (Advanced)</li>
+          <li>Data Validation and Drop-down List</li>
+          <li>Charts and Advanced Graphs</li>
+          <li>What-If Analysis (Goal Seek, Scenario, Data Table)</li>
+          <li>Power Query (Basic)</li>
+          <li>Dashboard and Report Creation</li>
+          <li>Macros and VBA (Introduction)</li>
         </ul>
       </template>
 
@@ -495,6 +663,63 @@
           <li>Image Manipulation</li>
           <li>2D Character</li>
           <li>2D Scenes Design</li>
+        </ul>
+      </template>
+
+      <template id="syllabus-animation-motion-graphics" data-title="Diploma in Animation &amp; Motion Graphics">
+        <p class="syllabus-meta">Duration: 06 Months | Fee: 9000&#8377;</p>
+        <h4>Syllabus</h4>
+        <ul class="syllabus-points">
+          <li>Introduction to After Effects</li>
+          <li>Layers &amp; Timeline</li>
+          <li>Keyframe Animation</li>
+          <li>Text Animation</li>
+          <li>Shape &amp; Object Animation</li>
+          <li>Masking &amp; Rotoscoping</li>
+          <li>Effects &amp; Presets</li>
+          <li>Motion Graphics Basics</li>
+          <li>Green Screen (Chroma Key)</li>
+          <li>3D Layers &amp; Camera (Basic)</li>
+          <li>Audio &amp; Video Sync</li>
+          <li>Render &amp; Export</li>
+        </ul>
+      </template>
+
+      <template id="syllabus-artificial-intelligence-generative-ai" data-title="Artificial Intelligence &amp; Generative AI Course">
+        <p class="syllabus-meta">Duration: 2 Months | Fee: 2500&#8377;</p>
+        <h4>Syllabus</h4>
+        <ul class="syllabus-points">
+          <li>Introduction to Artificial Intelligence</li>
+          <li>Basics of Machine Learning</li>
+          <li>Introduction to Generative AI</li>
+          <li>Prompt Engineering Fundamentals</li>
+          <li>Text Generation (AI Text Creation)</li>
+          <li>Image Generation (AI Image Creation)</li>
+          <li>Audio Generation (AI Voice, Music, Sound)</li>
+          <li>Video Generation (AI Video Creation)</li>
+          <li>Code Generation using AI</li>
+          <li>Multimodal AI (Text + Image + Audio + Video + Code)</li>
+          <li>AI Tools and Real-world Applications</li>
+          <li>Ethics, Safety and Responsible Use of AI</li>
+        </ul>
+      </template>
+
+      <template id="syllabus-wordpress-website-development" data-title="WordPress Website Development Course">
+        <p class="syllabus-meta">Duration: 3 Months | Fee: 4500&#8377;</p>
+        <h4>Syllabus</h4>
+        <ul class="syllabus-points">
+          <li>Introduction to WordPress</li>
+          <li>Domain and Hosting Setup</li>
+          <li>WordPress Installation and Dashboard</li>
+          <li>Themes Installation and Customization</li>
+          <li>Pages, Posts and Media Management</li>
+          <li>Menus and Widgets</li>
+          <li>Plugins Installation and Configuration</li>
+          <li>Contact Forms and Basic SEO Setup</li>
+          <li>Website Security and Backup</li>
+          <li>Speed Optimization (Basic)</li>
+          <li>E-commerce Website using WooCommerce</li>
+          <li>Website Launch and Maintenance</li>
         </ul>
       </template>
 

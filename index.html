@@ -25,7 +25,7 @@
             digital skills through structured and industry-oriented training.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="admission.html">Enquire Now</a>
+            <button class="btn btn-primary" id="heroEnquireBtn" type="button">Enquire Now</button>
             <a class="btn btn-secondary-outline" href="courses.html">Explore Courses</a>
           </div>
           <div class="hero-tags">
@@ -56,7 +56,7 @@
           </article>
           <div class="stat-grid">
             <article class="stat-card">
-              <h3>14+</h3>
+              <h3>18+</h3>
               <p>Courses Available</p>
             </article>
             <article class="stat-card">
@@ -239,6 +239,63 @@
         <a class="btn btn-primary" href="admission.html">Apply for Admission</a>
       </div>
     </section>
+
+    <div class="course-modal quick-enquiry-modal" id="quickEnquiryModal" aria-hidden="true">
+      <div class="course-modal-dialog quick-enquiry-dialog" role="dialog" aria-modal="true" aria-labelledby="quickEnquiryTitle">
+        <button class="course-modal-close" id="quickEnquiryClose" aria-label="Close enquiry form">x</button>
+        <h2 id="quickEnquiryTitle">Quick Enquiry</h2>
+        <p class="quick-enquiry-copy">Fill details below and continue to WhatsApp.</p>
+        <form id="quickEnquiryForm" class="enquiry-form" novalidate>
+          <div class="form-field">
+            <label for="quickFullName">Full Name</label>
+            <input type="text" id="quickFullName" name="quickFullName" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="form-field">
+            <label for="quickMobile">Mobile Number</label>
+            <input type="tel" id="quickMobile" name="quickMobile" placeholder="10-digit mobile number" required />
+          </div>
+
+          <div class="form-field">
+            <label for="quickEmail">Email</label>
+            <input type="email" id="quickEmail" name="quickEmail" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="quickCourseInterested">Course Interested</label>
+            <select id="quickCourseInterested" name="quickCourseInterested" required>
+              <option value="">Select a course</option>
+              <option>ADCA</option>
+              <option>DCA</option>
+              <option>ADFA</option>
+              <option>DFA</option>
+              <option>ADCA Plus</option>
+              <option>Tally Prime</option>
+              <option>CCC</option>
+              <option>O-Level</option>
+              <option>Python</option>
+              <option>Advance Excel</option>
+              <option>DTP</option>
+              <option>Graphic Designing</option>
+              <option>Diploma in Animation &amp; Motion Graphics</option>
+              <option>Artificial Intelligence &amp; Generative AI Course</option>
+              <option>WordPress Website Development Course</option>
+              <option>Video Editing - Basic</option>
+              <option>Video Editing - Advance</option>
+              <option>Web Development</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="quickMessage">Message</label>
+            <textarea id="quickMessage" name="quickMessage" rows="4" placeholder="Tell us about your learning goal"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Enquiry on WhatsApp</button>
+          <p id="quickFormStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <div id="site-footer"></div>
