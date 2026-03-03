@@ -864,6 +864,27 @@ function setupCourseEnquiryPopup() {
   });
 }
 
+function setupInteractionRestrictions() {
+  const preventAction = (event) => {
+    event.preventDefault();
+  };
+
+  document.addEventListener("contextmenu", preventAction);
+  document.addEventListener("copy", preventAction);
+  document.addEventListener("cut", preventAction);
+  document.addEventListener("paste", preventAction);
+  document.addEventListener("selectstart", preventAction);
+  document.addEventListener("dragstart", preventAction);
+
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+    const blockedKeys = ["a", "c", "v", "x"];
+    if ((event.ctrlKey || event.metaKey) && blockedKeys.includes(key)) {
+      event.preventDefault();
+    }
+  });
+}
+
 function initCommonLayout() {
   const headerRoot = document.getElementById("site-header");
   const footerRoot = document.getElementById("site-footer");
@@ -882,6 +903,7 @@ function initCommonLayout() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupInteractionRestrictions();
   initCommonLayout();
   setupTheme();
   setupCursorTrail();
