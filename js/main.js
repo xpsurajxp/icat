@@ -1,4 +1,5 @@
 const THEME_KEY = "icat-theme";
+const WHATSAPP_ENQUIRY_NUMBER = "918808800266";
 
 const navItems = [
   { href: "index.html", label: "Home" },
@@ -27,20 +28,47 @@ function buildHeader() {
     <header class="site-header">
       <div class="header-strip">
         <div class="container strip-inner">
-          <p>Hyderganj Market, Ayodhya</p>
+          <p class="strip-address strip-item">
+            <span class="strip-icon icon-float" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"></path>
+                <circle cx="12" cy="11" r="2.2"></circle>
+              </svg>
+            </span>
+            <span>Hyderganj Market, Ayodhya</span>
+          </p>
           <div class="strip-links">
-            <a href="tel:8808800266">8808800266</a>
-            <a href="mailto:xpsurajxp@gmail.com">xpsurajxp@gmail.com</a>
+            <a class="strip-item" href="https://wa.me/918808800266" target="_blank" rel="noopener noreferrer">
+              <span class="strip-icon icon-whatsapp" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16.75 13.96c.25.13.41.22.47.33.05.1.05.58-.13 1.06-.18.48-1.09.92-1.51.97-.42.05-.95.23-3.34-.82-2.42-1.07-3.98-3.68-4.1-3.84-.14-.16-.98-1.27-.98-2.42s.58-1.69.79-1.92c.21-.23.46-.29.61-.29.15 0 .3 0 .43.01.14.01.32-.05.51.41.19.46.66 1.61.72 1.73.06.12.1.27.01.43-.08.16-.13.25-.26.4-.13.15-.27.33-.39.46-.13.13-.27.27-.12.53.16.26.69 1.13 1.48 1.83 1.03.91 1.9 1.2 2.2 1.34.3.14.47.12.61-.04.14-.17.61-.72.79-.98.18-.26.36-.21.59-.12.23.08 1.4.66 1.62.78ZM12 2a10 10 0 0 0-10 10c0 1.76.46 3.45 1.25 4.95L2 22l5.17-1.26A9.9 9.9 0 0 0 12 22a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"></path>
+                </svg>
+              </span>
+              <span>WhatsApp: 8808800266</span>
+            </a>
+            <a class="strip-item" href="tel:8808807636">
+              <span class="strip-icon icon-soft-pulse" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 3h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2C10.2 20 4 13.8 4 6a2 2 0 0 1 2-2Z"></path>
+                </svg>
+              </span>
+              <span>Call: 8808807636</span>
+            </a>
+            <a class="strip-item" href="mailto:academyicat@gmail.com">
+              <span class="strip-icon icon-pop" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                  <path d="m4 8 8 6 8-6"></path>
+                </svg>
+              </span>
+              <span>academyicat@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>
       <div class="container nav-wrap">
         <a class="logo" href="index.html" aria-label="iCat Compuer Academy Home">
           <img class="logo-img" src="assets/logo.png" alt="iCat Compuer Academy Logo" />
-          <span class="logo-text">
-            <span class="logo-title">iCat Compuer Academy</span>
-            <span class="logo-subtitle">Unlock your digital potential</span>
-          </span>
         </a>
         <ul class="nav-menu" id="navMenu">
           ${menu}
@@ -71,23 +99,55 @@ function buildFooter() {
         </div>
         <div class="footer-grid">
           <article class="footer-card">
-            <h3>Quick Links</h3>
-            <p><a href="about.html">About Institute</a></p>
-            <p><a href="courses.html">Courses</a></p>
-            <p><a href="admission.html">Admission</a></p>
+            <h3 class="icon-title">
+              <span class="icon-badge icon-float" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M10 14 7 17a3 3 0 0 1-4-4l3-3"></path>
+                  <path d="m14 10 3-3a3 3 0 0 1 4 4l-3 3"></path>
+                  <path d="m8 16 8-8"></path>
+                </svg>
+              </span>
+              <span>Quick Links</span>
+            </h3>
+            <p><a class="footer-link" href="about.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 14 4-4 3 3 4-5"></path></svg></span><span>About Institute</span></a></p>
+            <p><a class="footer-link" href="courses.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span><span>Courses</span></a></p>
+            <p><a class="footer-link" href="admission.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span><span>Admission</span></a></p>
           </article>
           <article class="footer-card">
-            <h3>Address</h3>
-            <p>Hyderganj Market, Ayodhya</p>
+            <h3 class="icon-title">
+              <span class="icon-badge icon-float" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"></path>
+                  <circle cx="12" cy="11" r="2.2"></circle>
+                </svg>
+              </span>
+              <span>Address</span>
+            </h3>
+            <p class="footer-line"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"></path><circle cx="12" cy="11" r="2.2"></circle></svg></span><span>Hyderganj Market, Ayodhya</span></p>
           </article>
           <article class="footer-card">
-            <h3>Phone</h3>
-            <p><a href="tel:8808800266">8808800266</a></p>
-            <p><a href="tel:8808807636">8808807636</a></p>
+            <h3 class="icon-title">
+              <span class="icon-badge icon-soft-pulse" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 3h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2C10.2 20 4 13.8 4 6a2 2 0 0 1 2-2Z"></path>
+                </svg>
+              </span>
+              <span>Phone</span>
+            </h3>
+            <p><a class="footer-link" href="https://wa.me/918808800266" target="_blank" rel="noopener noreferrer"><span class="footer-link-icon whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.22.47.33.05.1.05.58-.13 1.06-.18.48-1.09.92-1.51.97-.42.05-.95.23-3.34-.82-2.42-1.07-3.98-3.68-4.1-3.84-.14-.16-.98-1.27-.98-2.42s.58-1.69.79-1.92c.21-.23.46-.29.61-.29.15 0 .3 0 .43.01.14.01.32-.05.51.41.19.46.66 1.61.72 1.73.06.12.1.27.01.43-.08.16-.13.25-.26.4-.13.15-.27.33-.39.46-.13.13-.27.27-.12.53.16.26.69 1.13 1.48 1.83 1.03.91 1.9 1.2 2.2 1.34.3.14.47.12.61-.04.14-.17.61-.72.79-.98.18-.26.36-.21.59-.12.23.08 1.4.66 1.62.78ZM12 2a10 10 0 0 0-10 10c0 1.76.46 3.45 1.25 4.95L2 22l5.17-1.26A9.9 9.9 0 0 0 12 22a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"></path></svg></span><span>WhatsApp: 8808800266</span></a></p>
+            <p><a class="footer-link" href="tel:8808807636"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2C10.2 20 4 13.8 4 6a2 2 0 0 1 2-2Z"></path></svg></span><span>Call: 8808807636</span></a></p>
           </article>
           <article class="footer-card">
-            <h3>Email</h3>
-            <p><a href="mailto:xpsurajxp@gmail.com">xpsurajxp@gmail.com</a></p>
+            <h3 class="icon-title">
+              <span class="icon-badge icon-pop" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                  <path d="m4 8 8 6 8-6"></path>
+                </svg>
+              </span>
+              <span>Email</span>
+            </h3>
+            <p><a class="footer-link" href="mailto:academyicat@gmail.com"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="m4 8 8 6 8-6"></path></svg></span><span>academyicat@gmail.com</span></a></p>
           </article>
         </div>
         <p class="copyright">&copy; <span id="year"></span> iCat Compuer Academy. All rights reserved.</p>
@@ -442,7 +502,22 @@ function setupFormValidation() {
       return;
     }
 
-    status.textContent = "Thank you! Your enquiry has been submitted successfully.";
+    const enquiryMessage = [
+      "New Admission Enquiry - iCat Compuer Academy",
+      `Full Name: ${fullName}`,
+      `Mobile Number: ${mobile}`,
+      `Email: ${email}`,
+      `Course Interested: ${course}`,
+      `Message: ${message}`
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_ENQUIRY_NUMBER}?text=${encodeURIComponent(enquiryMessage)}`;
+    const popup = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (!popup) {
+      window.location.href = whatsappUrl;
+    }
+
+    status.textContent = "Thank you! WhatsApp is opening with your enquiry details.";
     status.className = "form-status success";
     form.reset();
   });
