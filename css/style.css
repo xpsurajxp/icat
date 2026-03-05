@@ -676,7 +676,7 @@ a {
     linear-gradient(96deg, rgba(6, 14, 28, 0.84) 0%, rgba(6, 14, 28, 0.62) 36%, rgba(6, 14, 28, 0.24) 66%, rgba(6, 14, 28, 0.38) 100%),
     url("../assets/hero-desktop.webp");
   background-repeat: no-repeat;
-  background-position: 68% 74%;
+  background-position: 58% 76%;
   background-size: cover;
 }
 
@@ -749,23 +749,6 @@ a {
   justify-content: flex-start;
 }
 
-.hero-tags {
-  margin-top: 1.35rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  justify-content: flex-start;
-}
-
-.hero-tags span {
-  padding: 0.34rem 0.68rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  color: #ffffff;
-  font-size: 0.81rem;
-  font-weight: 700;
-}
 
 .hero-panel {
   display: grid;
@@ -842,8 +825,7 @@ a {
   font-size: clamp(1.2rem, 2vw, 1.55rem);
 }
 
-.popular-courses-section .course-card,
-.home-notebook-section .notebook-card {
+.popular-courses-section .course-card {
   border-top: 3px solid color-mix(in srgb, var(--primary) 52%, transparent);
 }
 
@@ -861,10 +843,6 @@ a {
 
 .home-about-copy + .home-about-copy {
   margin-top: 0.72rem;
-}
-
-.home-about-actions {
-  margin-top: 1rem;
 }
 
 .section-bottom-action {
@@ -1935,7 +1913,7 @@ a {
       url("../assets/hero-mobile.webp");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 56% 72%;
+    background-position: 44% 74%;
   }
 
   .courses-grid,
@@ -1945,8 +1923,7 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .popular-courses-section .grid-3,
-  .home-notebook-section .notebook-home-grid {
+  .popular-courses-section .grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2080,7 +2057,7 @@ a {
       url("../assets/hero-mobile.webp");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 54% 74%;
+    background-position: 40% 76%;
   }
 
   .notebook-viewer-frame-wrap {
