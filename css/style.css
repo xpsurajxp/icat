@@ -159,6 +159,16 @@ a {
   max-width: 62ch;
 }
 
+.split-copy-wrap {
+  display: grid;
+  gap: 0.72rem;
+  justify-items: start;
+}
+
+.section-link-btn {
+  white-space: nowrap;
+}
+
 .icon-title {
   display: flex;
   align-items: center;
@@ -639,14 +649,15 @@ a {
 
 /* Hero */
 .hero {
-  padding: 2.6rem 0 4.8rem;
+  padding: 0;
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 1.5rem;
-  align-items: center;
+  min-height: clamp(520px, 78vh, 760px);
+  display: flex;
+  align-items: flex-start;
+  padding-top: clamp(2rem, 6vh, 4.8rem);
+  padding-bottom: 1.4rem;
 }
 
 .hero-content {
@@ -658,6 +669,64 @@ a {
   -webkit-backdrop-filter: blur(var(--glass-blur));
   padding: clamp(1.4rem, 2vw, 2rem);
   text-align: center;
+}
+
+.home-hero {
+  background:
+    linear-gradient(96deg, rgba(6, 14, 28, 0.84) 0%, rgba(6, 14, 28, 0.62) 36%, rgba(6, 14, 28, 0.24) 66%, rgba(6, 14, 28, 0.38) 100%),
+    url("../assets/hero-desktop.webp");
+  background-repeat: no-repeat;
+  background-position: 68% 74%;
+  background-size: cover;
+}
+
+.hero-content-overlay {
+  max-width: min(760px, 100%);
+  margin-right: auto;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.hero-content-overlay h1,
+.hero-content-overlay .hero-lead,
+.hero-content-overlay p,
+.hero-content-overlay strong {
+  color: #f7fbff;
+  text-shadow: 0 10px 32px rgba(0, 0, 0, 0.52);
+}
+
+.hero-content-overlay .eyebrow {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(10, 22, 43, 0.32);
+}
+
+.hero-content-overlay::before {
+  display: none;
+}
+
+.hero-content-overlay .hero-lead {
+  margin-inline: 0;
+}
+
+.home-hero .btn-primary {
+  box-shadow: 0 14px 26px rgba(8, 16, 30, 0.35);
+}
+
+.home-hero .btn-secondary-outline {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.home-hero .btn-secondary-outline:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .hero-content h1 {
@@ -677,7 +746,7 @@ a {
   flex-wrap: wrap;
   gap: 0.65rem;
   margin-top: 1.3rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-tags {
@@ -685,15 +754,15 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-tags span {
-  padding: 0.34rem 0.66rem;
+  padding: 0.34rem 0.68rem;
   border-radius: 999px;
-  background: var(--accent-soft);
-  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  color: #ffffff;
   font-size: 0.81rem;
   font-weight: 700;
 }
@@ -701,6 +770,18 @@ a {
 .hero-panel {
   display: grid;
   gap: 1rem;
+}
+
+.hero-image-card {
+  padding: 0.45rem;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  min-height: 360px;
+  border-radius: 1rem;
+  object-fit: cover;
 }
 
 .hero-card {
@@ -755,6 +836,41 @@ a {
   color: var(--muted);
   font-weight: 600;
   font-size: 0.82rem;
+}
+
+.quick-highlights .stat-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.popular-courses-section .course-card,
+.home-notebook-section .notebook-card {
+  border-top: 3px solid color-mix(in srgb, var(--primary) 52%, transparent);
+}
+
+.about-enquiry-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.home-about-card h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+}
+
+.home-about-copy + .home-about-copy {
+  margin-top: 0.72rem;
+}
+
+.home-about-actions {
+  margin-top: 1rem;
+}
+
+.section-bottom-action {
+  margin-top: 1.15rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* Cards */
@@ -1180,6 +1296,118 @@ a {
 
 .course-link:hover {
   color: var(--primary-strong);
+}
+
+.notebook-meta {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.notebook-meta-copy {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.notebook-meta-copy code {
+  font-family: "Sora", sans-serif;
+  color: var(--primary);
+}
+
+.notebook-card p {
+  color: var(--muted);
+}
+
+.notebook-open-btn {
+  margin-top: 0;
+}
+
+.notebook-status {
+  margin-top: 0.9rem;
+  min-height: 1.2rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.notebook-status.error {
+  color: #cb3f3f;
+}
+
+.notebook-viewer {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 2600;
+  background: rgba(7, 12, 20, 0.64);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.notebook-viewer.show {
+  display: block;
+}
+
+.notebook-viewer-shell {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--glass-bg-strong) 96%, transparent);
+}
+
+.notebook-viewer-header {
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.notebook-viewer-header h2 {
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+}
+
+.notebook-viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notebook-viewer-close {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass-bg);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.notebook-viewer-frame-wrap {
+  flex: 1;
+  min-height: 0;
+  padding: 0.8rem;
+}
+
+.notebook-viewer-frame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--glass-border);
+  border-radius: 0.95rem;
+  background: #fff;
+}
+
+.notebook-viewer-note {
+  margin: 0;
+  padding: 0 1rem 0.8rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
 }
 
 .course-modal {
@@ -1610,6 +1838,7 @@ a {
   .hero-grid,
   .why-layout,
   .about-value-layout,
+  .about-enquiry-layout,
   .about-layout,
   .contact-layout,
   .admission-layout,
@@ -1626,8 +1855,9 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero {
-    padding-top: 2.1rem;
+  .hero-grid {
+    min-height: clamp(460px, 72vh, 620px);
+    padding-top: clamp(1.6rem, 4.8vh, 3rem);
   }
 
   .cta-panel {
@@ -1695,11 +1925,29 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .hero-grid {
+    min-height: clamp(420px, 65vh, 560px);
+  }
+
+  .home-hero {
+    background:
+      linear-gradient(96deg, rgba(6, 14, 28, 0.84) 0%, rgba(6, 14, 28, 0.62) 36%, rgba(6, 14, 28, 0.24) 66%, rgba(6, 14, 28, 0.38) 100%),
+      url("../assets/hero-mobile.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 56% 72%;
+  }
+
   .courses-grid,
   .gallery-mosaic,
   .grid-4,
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .popular-courses-section .grid-3,
+  .home-notebook-section .notebook-home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .courses-filter-grid {
@@ -1715,6 +1963,11 @@ a {
     width: 100%;
   }
 
+  .notebook-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .gallery-mosaic {
     grid-auto-rows: 220px;
   }
@@ -1723,6 +1976,23 @@ a {
   .gallery-item.tall {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .hero-image {
+    min-height: 300px;
+  }
+
+  .notebook-viewer-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notebook-viewer-actions {
+    width: 100%;
+  }
+
+  .notebook-viewer-actions .btn {
+    flex: 1;
   }
 
   .footer-grid {
@@ -1797,6 +2067,28 @@ a {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-grid {
+    min-height: clamp(390px, 62vh, 500px);
+    padding-top: 1.2rem;
+  }
+
+  .home-hero {
+    background:
+      linear-gradient(96deg, rgba(6, 14, 28, 0.84) 0%, rgba(6, 14, 28, 0.62) 36%, rgba(6, 14, 28, 0.24) 66%, rgba(6, 14, 28, 0.38) 100%),
+      url("../assets/hero-mobile.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 54% 74%;
+  }
+
+  .notebook-viewer-frame-wrap {
+    padding: 0.62rem;
+  }
+
+  .notebook-viewer-frame {
+    border-radius: 0.7rem;
   }
 }
 

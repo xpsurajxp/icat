@@ -5,9 +5,104 @@ const navItems = [
   { href: "index.html", label: "Home" },
   { href: "about.html", label: "About" },
   { href: "courses.html", label: "Courses" },
+  { href: "notebook.html", label: "Notebook" },
   { href: "gallery.html", label: "Gallery" },
   { href: "contact.html", label: "Contact Us" },
   { href: "admission.html", label: "Admission" }
+];
+
+// Update only the `driveLink` values below to replace notebook PDFs.
+const notebookCatalog = [
+  {
+    course: "ADCA",
+    description: "Complete class notebook for computer fundamentals and office tools.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "DCA",
+    description: "Beginner-focused notebook for practical diploma exercises.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "ADFA",
+    description: "Financial accounting and digital skills notebook with assignments.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "DFA",
+    description: "Core accounting practice notebook for daily class revision.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "ADCA Plus",
+    description: "Advanced mixed-skill notebook covering office and web modules.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Tally Prime",
+    description: "Accounting entries and GST workflow notes for practical sessions.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "CCC",
+    description: "CCC concept-wise notebook for exam preparation and practice.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "O-Level",
+    description: "Module-wise notebook covering M1-R5 to M4-R5 topics.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Python",
+    description: "Programming notebook with syntax examples and practice tasks.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Advance Excel",
+    description: "Formula, Pivot and dashboard notebook for advanced workbook practice.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "DTP",
+    description: "Desktop publishing notebook for Photoshop and CorelDraw practice.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Graphic Designing",
+    description: "Design workflow notebook covering typography, tools and projects.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Diploma in Animation & Motion Graphics",
+    description: "Animation class notebook for timeline, effects and render workflow.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Artificial Intelligence & Generative AI Course",
+    description: "AI tools, prompt engineering and practical use-case notebook.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "WordPress Website Development Course",
+    description: "Step-by-step notebook for WordPress setup, themes and plugins.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Web Development",
+    description: "Front-end and project notebook for HTML, CSS and JavaScript training.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Video Editing - Basic",
+    description: "Editing notebook for Filmora workflow, transitions and export process.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  },
+  {
+    course: "Video Editing - Advance",
+    description: "Advanced editing notebook for Premiere Pro workflow and ad creation.",
+    driveLink: "https://drive.google.com/file/d/1ugpRJM4NFGUD_dtvj3Ne8qoJ6DHOeFYt/view?usp=sharing"
+  }
 ];
 
 function getCurrentPage() {
@@ -111,6 +206,7 @@ function buildFooter() {
             </h3>
             <p><a class="footer-link" href="about.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 14 4-4 3 3 4-5"></path></svg></span><span>About Institute</span></a></p>
             <p><a class="footer-link" href="courses.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span><span>Courses</span></a></p>
+            <p><a class="footer-link" href="notebook.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h4"></path></svg></span><span>Notebook</span></a></p>
             <p><a class="footer-link" href="admission.html"><span class="footer-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></span><span>Admission</span></a></p>
           </article>
           <article class="footer-card">
@@ -637,6 +733,148 @@ function setupCourseSearchFilter() {
   applyFilters();
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function normalizeDrivePreviewLink(rawLink) {
+  if (typeof rawLink !== "string") {
+    return "";
+  }
+
+  const trimmed = rawLink.trim();
+  if (!trimmed || trimmed.includes("REPLACE_")) {
+    return "";
+  }
+
+  const directPreviewPattern = /^https:\/\/drive\.google\.com\/file\/d\/[a-zA-Z0-9_-]+\/preview/i;
+  if (directPreviewPattern.test(trimmed)) {
+    return trimmed;
+  }
+
+  const fileIdMatch = trimmed.match(/\/d\/([a-zA-Z0-9_-]{10,})/) || trimmed.match(/[?&]id=([a-zA-Z0-9_-]{10,})/);
+  if (!fileIdMatch) {
+    return "";
+  }
+
+  return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`;
+}
+
+function setupNotebookLibrary() {
+  const grid = document.getElementById("notebookGrid");
+  const countText = document.getElementById("notebookCount");
+  const statusText = document.getElementById("notebookStatus");
+  const viewer = document.getElementById("notebookViewer");
+  const viewerTitle = document.getElementById("notebookViewerTitle");
+  const viewerFrame = document.getElementById("notebookFrame");
+  const viewerBack = document.getElementById("notebookViewerBack");
+  const viewerClose = document.getElementById("notebookViewerClose");
+
+  if (!grid) {
+    return;
+  }
+
+  const notebookItems = notebookCatalog.map((item) => ({
+    ...item,
+    previewLink: normalizeDrivePreviewLink(item.driveLink)
+  }));
+
+  grid.innerHTML = notebookItems
+    .map(
+      (item) => `
+      <article class="course-card notebook-card">
+        <h3>${escapeHtml(item.course)}</h3>
+        <p>${escapeHtml(item.description || "Course-wise notebook for revision and practical work.")}</p>
+        <div class="course-actions">
+          <button class="btn btn-secondary notebook-open-btn" type="button" data-course="${escapeHtml(item.course)}" data-link="${escapeHtml(item.previewLink)}">
+            Open Notebook
+          </button>
+        </div>
+      </article>
+    `
+    )
+    .join("");
+
+  if (countText) {
+    countText.textContent = `Showing ${notebookItems.length} notebooks`;
+  }
+
+  if (!viewer || !viewerTitle || !viewerFrame || !viewerBack || !viewerClose) {
+    return;
+  }
+
+  function setNotebookStatus(message, isError) {
+    if (!statusText) {
+      return;
+    }
+    statusText.textContent = message;
+    statusText.className = `notebook-status${isError ? " error" : ""}`;
+  }
+
+  function openViewer(courseName, previewLink) {
+    if (!previewLink) {
+      setNotebookStatus("Notebook link is pending. Add the Google Drive embed link in js/main.js.", true);
+      return;
+    }
+
+    setNotebookStatus("", false);
+    viewerTitle.textContent = `${courseName} - Notebook`;
+    viewerFrame.src = previewLink;
+    viewer.classList.add("show");
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeViewer() {
+    viewer.classList.remove("show");
+    viewer.setAttribute("aria-hidden", "true");
+    viewerFrame.src = "about:blank";
+    document.body.style.overflow = "";
+  }
+
+  grid.querySelectorAll(".notebook-open-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const courseName = button.getAttribute("data-course") || "Course";
+      const previewLink = button.getAttribute("data-link") || "";
+      openViewer(courseName, previewLink);
+    });
+  });
+
+  viewerBack.addEventListener("click", closeViewer);
+  viewerClose.addEventListener("click", closeViewer);
+
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) {
+      closeViewer();
+    }
+  });
+
+  viewer.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const isViewerOpen = viewer.classList.contains("show");
+    if (!isViewerOpen) {
+      return;
+    }
+
+    const key = event.key.toLowerCase();
+    if (event.key === "Escape") {
+      closeViewer();
+      return;
+    }
+    if ((event.ctrlKey || event.metaKey) && (key === "p" || key === "s")) {
+      event.preventDefault();
+    }
+  });
+}
+
 function validateEnquiryData(fullName, mobile, email, course, message) {
   const mobilePattern = /^\d{10}$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -878,7 +1116,7 @@ function setupInteractionRestrictions() {
 
   document.addEventListener("keydown", (event) => {
     const key = event.key.toLowerCase();
-    const blockedKeys = ["a", "c", "v", "x"];
+    const blockedKeys = ["a", "c", "v", "x", "p", "s"];
     if ((event.ctrlKey || event.metaKey) && blockedKeys.includes(key)) {
       event.preventDefault();
     }
@@ -911,6 +1149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLightbox();
   setupCourseSyllabusPopup();
   setupCourseSearchFilter();
+  setupNotebookLibrary();
   setupFormValidation();
   setupQuickEnquiryPopup();
   setupCourseEnquiryPopup();
