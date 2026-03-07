@@ -1,10 +1,33 @@
 const THEME_KEY = "icat-theme";
 const WHATSAPP_ENQUIRY_NUMBER = "918808800266";
 
+const COURSE_CATEGORIES = [
+  { value: "office", label: "Office & Basics" },
+  { value: "accounting", label: "Accounting & Finance" },
+  { value: "certification", label: "Govt Certification" },
+  { value: "programming", label: "Programming & Web" },
+  { value: "design", label: "Design & Multimedia" },
+  { value: "ai", label: "AI & Emerging Tech" }
+];
+
+const COURSE_CATEGORY_LABELS = COURSE_CATEGORIES.reduce((acc, item) => {
+  acc[item.value] = item.label;
+  return acc;
+}, {});
+
+const courseMenuItems = [
+  { href: "courses.html", label: "All Courses", category: "" },
+  ...COURSE_CATEGORIES.map((category) => ({
+    href: `courses.html?category=${category.value}`,
+    label: category.label,
+    category: category.value
+  }))
+];
+
 const navItems = [
   { href: "index.html", label: "Home" },
   { href: "about.html", label: "About" },
-  { href: "courses.html", label: "Courses" },
+  { href: "courses.html", label: "Courses", submenu: courseMenuItems },
   { href: "notebook.html", label: "Notebook" },
   { href: "gallery.html", label: "Gallery" },
   { href: "contact.html", label: "Contact Us" },
@@ -112,11 +135,38 @@ function getCurrentPage() {
 
 function buildHeader() {
   const currentPage = getCurrentPage();
+  const currentParams = new URLSearchParams(window.location.search);
+  const currentCategory = currentParams.get("category") || "";
+
   const menu = navItems
-    .map(
-      ({ href, label }) =>
-        `<li><a class="nav-link ${currentPage === href ? "active" : ""}" href="${href}">${label}</a></li>`
-    )
+    .map((item) => {
+      if (item.submenu) {
+        const isActive = currentPage === item.href;
+        const submenuMarkup = item.submenu
+          .map((subItem) => {
+            const isCategoryMatch = subItem.category
+              ? currentCategory === subItem.category
+              : currentCategory === "";
+            const isSubActive = currentPage === item.href && isCategoryMatch;
+            return `<li><a class="nav-link ${isSubActive ? "active" : ""}" href="${subItem.href}">${subItem.label}</a></li>`;
+          })
+          .join("");
+
+        return `
+          <li class="nav-item has-submenu">
+            <button class="nav-link nav-trigger ${isActive ? "active" : ""}" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="coursesSubmenu">
+              <span>Courses</span>
+              <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-submenu" id="coursesSubmenu">
+              ${submenuMarkup}
+            </ul>
+          </li>
+        `;
+      }
+
+      return `<li class="nav-item"><a class="nav-link ${currentPage === item.href ? "active" : ""}" href="${item.href}">${item.label}</a></li>`;
+    })
     .join("");
 
   return `

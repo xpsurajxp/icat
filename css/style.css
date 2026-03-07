@@ -807,6 +807,7 @@ a {
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   box-shadow: var(--glass-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-card h3 {
@@ -821,12 +822,25 @@ a {
   font-size: 0.82rem;
 }
 
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(12, 20, 34, 0.18);
+}
+
 .quick-highlights .stat-card h3 {
   font-size: clamp(1.2rem, 2vw, 1.55rem);
 }
 
 .popular-courses-section .course-card {
   border-top: 3px solid color-mix(in srgb, var(--primary) 52%, transparent);
+}
+
+.popular-courses-section .course-card h3 {
+  font-size: 1.05rem;
+}
+
+.popular-courses-section .course-actions .btn {
+  font-size: 0.85rem;
 }
 
 .about-enquiry-layout {
@@ -849,6 +863,22 @@ a {
   margin-top: 1.15rem;
   display: flex;
   justify-content: center;
+}
+
+.quick-highlights {
+  position: relative;
+}
+
+.quick-highlights::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 30%, transparent), transparent);
+}
+
+.testimonials-section .testimonial-card {
+  border-top: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 /* Cards */
@@ -1590,6 +1620,11 @@ a {
   gap: 0.65rem;
 }
 
+.contact-cta {
+  min-width: 140px;
+  justify-content: center;
+}
+
 .support-grid {
   align-items: stretch;
 }
@@ -1745,6 +1780,7 @@ a {
   box-shadow: var(--glass-shadow);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer-card h3 {
@@ -1792,6 +1828,11 @@ a {
 
 .footer-card a:hover {
   color: var(--primary);
+}
+
+.footer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(12, 20, 34, 0.18);
 }
 
 .copyright {
