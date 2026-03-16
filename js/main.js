@@ -1,38 +1,23 @@
 const THEME_KEY = "icat-theme";
 const WHATSAPP_ENQUIRY_NUMBER = "918808800266";
 
-const COURSE_CATEGORIES = [
-  { value: "office", label: "Office & Basics" },
-  { value: "accounting", label: "Accounting & Finance" },
-  { value: "certification", label: "Govt Certification" },
-  { value: "programming", label: "Programming & Web" },
-  { value: "design", label: "Design & Multimedia" },
-  { value: "ai", label: "AI & Emerging Tech" }
-];
-
-const COURSE_CATEGORY_LABELS = COURSE_CATEGORIES.reduce((acc, item) => {
-  acc[item.value] = item.label;
-  return acc;
-}, {});
-
-const courseMenuItems = [
-  { href: "courses.html", label: "All Courses", category: "" },
-  ...COURSE_CATEGORIES.map((category) => ({
-    href: `courses.html?category=${category.value}`,
-    label: category.label,
-    category: category.value
-  }))
-];
-
 const navItems = [
   { href: "index.html", label: "Home" },
   { href: "about.html", label: "About" },
-  { href: "courses.html", label: "Courses", submenu: courseMenuItems },
+  { href: "courses.html", label: "Courses" },
   { href: "notebook.html", label: "Notebook" },
   { href: "gallery.html", label: "Gallery" },
   { href: "contact.html", label: "Contact Us" },
   { href: "admission.html", label: "Admission" }
 ];
+
+function shouldReduceMotion() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  const lowMemory = typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+  const lowCpu = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+  return reduceMotion || saveData || lowMemory || lowCpu;
+}
 
 // Update only the `driveLink` values below to replace notebook PDFs.
 const notebookCatalog = [
@@ -299,6 +284,12 @@ function buildFooter() {
         <p class="copyright">&copy; <span id="year"></span> iCat Compuer Academy. All rights reserved.</p>
       </div>
     </footer>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 5v14"></path>
+        <path d="m6 11 6-6 6 6"></path>
+      </svg>
+    </button>
   `;
 }
 
@@ -392,7 +383,7 @@ function setupLightbox() {
 }
 
 function setupCursorTrail() {
-  if (!window.matchMedia("(pointer: fine)").matches) {
+  if (!window.matchMedia("(pointer: fine)").matches || shouldReduceMotion()) {
     return;
   }
 
@@ -477,6 +468,10 @@ function setupCursorTrail() {
 
   function tick(time) {
     rafId = 0;
+    if (document.hidden) {
+      particles.length = 0;
+      return;
+    }
     const delta = Math.min(34, time - (lastFrameTime || time));
     lastFrameTime = time;
 
@@ -551,6 +546,11 @@ function setupCursorTrail() {
   window.addEventListener("pointerleave", () => {
     isPointerInside = false;
     requestTick();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      particles.length = 0;
+    }
   });
 }
 
@@ -1153,7 +1153,13 @@ function setupCourseEnquiryPopup() {
 }
 
 function setupInteractionRestrictions() {
+  const isEditableTarget = (target) =>
+    target && target.closest("input, textarea, select, [contenteditable='true']");
+
   const preventAction = (event) => {
+    if (isEditableTarget(event.target)) {
+      return;
+    }
     event.preventDefault();
   };
 
@@ -1165,11 +1171,37 @@ function setupInteractionRestrictions() {
   document.addEventListener("dragstart", preventAction);
 
   document.addEventListener("keydown", (event) => {
+    if (isEditableTarget(event.target)) {
+      return;
+    }
     const key = event.key.toLowerCase();
     const blockedKeys = ["a", "c", "v", "x", "p", "s"];
     if ((event.ctrlKey || event.metaKey) && blockedKeys.includes(key)) {
       event.preventDefault();
     }
+  });
+}
+
+function setupBackToTop() {
+  const button = document.getElementById("backToTop");
+  if (!button) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const toggleVisibility = () => {
+    const shouldShow = window.scrollY > 380;
+    button.classList.toggle("show", shouldShow);
+    button.setAttribute("aria-hidden", String(!shouldShow));
+    button.tabIndex = shouldShow ? 0 : -1;
+  };
+
+  window.addEventListener("scroll", toggleVisibility, { passive: true });
+  toggleVisibility();
+
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
 }
 
@@ -1195,6 +1227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCommonLayout();
   setupTheme();
   setupCursorTrail();
+  setupBackToTop();
   setupMobileMenu();
   setupLightbox();
   setupCourseSyllabusPopup();
